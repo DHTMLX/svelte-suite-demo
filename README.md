@@ -1,6 +1,7 @@
 # DHTMLX Suite with Svelte Demo
 
 [![dhtmlx.com](https://img.shields.io/badge/made%20by-DHTMLX-blue)](https://dhtmlx.com/)
+![DHTMLX Suite with Angular Demo](https://raw.githubusercontent.com/DHTMLX/svelte-suite-demo/master/suite.png)
 
 ## How to start
 
@@ -11,6 +12,8 @@ yarn start
 
 ## Useful links
 
+- **[Online demo](https://replit.com/@dhtmlx/dhtmlx-suite-with-svelte)**
+- [More demos about the DHTMLX Suite functionality](https://snippet.dhtmlx.com/1eh4ks4f)
 - [Technical support ](https://forum.dhtmlx.com/c/suite)
 - [Online  documentation](https://docs.dhtmlx.com/suite/)
 
