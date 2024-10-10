@@ -6,7 +6,7 @@ import Chart from "./Chart.svelte";
   import MessageDataview from "./MessageDataview.svelte";
 
 </script>
-<div class="wrapper">
+<div class="container-wrapper">
     <Chart/>
     <Form />
     <ButtonsForm />
@@ -15,7 +15,7 @@ import Chart from "./Chart.svelte";
 </div>
 
 <style>
-    .wrapper {
+    .container-wrapper {
         display: flex;
         height: 100%;
         width: fit-content; 

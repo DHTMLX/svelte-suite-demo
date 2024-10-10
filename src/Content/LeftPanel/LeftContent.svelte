@@ -9,7 +9,7 @@ import Grid from "./Grid.svelte";
   import Tree from "./Tree.svelte";
 
 </script>
-<div class="wrapper">
+<div class="container-wrapper">
     <Grid />
     <Calendars />
     <Accardion />
@@ -22,7 +22,7 @@ import Grid from "./Grid.svelte";
 </div>
 
 <style>
-    .wrapper {
+    .container-wrapper {
         display: flex;
         height: 100%; 
         max-width: 800px;
