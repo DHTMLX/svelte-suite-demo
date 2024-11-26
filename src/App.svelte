@@ -1,17 +1,16 @@
 <script>
-	import MainContainer from './MainContainer.svelte';
-import Sidebar from './Sidebar.svelte';
-  import "@dhx/trial-suite/codebase/suite.min.css"
-
+  import MainContainer from "./MainContainer.svelte";
+  import Sidebar from "./Sidebar.svelte";
+  import "@dhx/trial-suite/codebase/suite.min.css";
 </script>
 
 <main>
   <Sidebar />
-  <MainContainer/>
+  <MainContainer />
 </main>
 
 <style>
- main {
+  main {
     height: 100%;
     width: 100%;
     display: flex;

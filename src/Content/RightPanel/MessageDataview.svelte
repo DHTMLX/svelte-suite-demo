@@ -30,7 +30,7 @@
     return () => dataview.destructor();
   });
 
-  $: dataview?.data.parse($store.messageDataviewData)
+  $: dataview?.data.parse($store.messageDataviewData);
 </script>
 
 <div bind:this={node} />

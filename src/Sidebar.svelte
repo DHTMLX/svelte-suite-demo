@@ -20,7 +20,7 @@
     return () => sidebar.destructor();
   });
 
-  $: sidebar?.data.parse($store.sidebarData)
+  $: sidebar?.data.parse($store.sidebarData);
 </script>
 
 <div bind:this={node} class="dhx_widget--border_right"></div>

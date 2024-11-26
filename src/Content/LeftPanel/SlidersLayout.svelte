@@ -48,8 +48,6 @@
       ],
     });
 
-    
-
     const slider1 = new Slider(null, {
       min: 0,
       max: 40,
@@ -112,7 +110,7 @@
 <div bind:this={node} class="container"></div>
 
 <style>
-    .container {
-        flex-grow: 1;
-    }
+  .container {
+    flex-grow: 1;
+  }
 </style>

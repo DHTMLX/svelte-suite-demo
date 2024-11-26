@@ -35,7 +35,7 @@
 
     return () => chart.destructor();
   });
-  $: chart?.data.parse($store.chartData)
+  $: chart?.data.parse($store.chartData);
 </script>
 
 <div bind:this={node} class="container" />

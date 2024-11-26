@@ -10,10 +10,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@dhx/trial-suite@^8.4.0":
-  version "8.4.4"
-  resolved "https://npm.dhtmlx.com/@dhx%2ftrial-suite/-/trial-suite-8.4.4.tgz#e1789fb47bee2e3978efc20ace3bfc6c5d0bc670"
-  integrity sha512-JXNRrIrtHg6cORKrjej8K0VekWK/t3Y/P7WamLQDWjGpuVP2Ah4WuzQFpGhfIUX+wfUoFNRkfbWzil5w+wkrDw==
+"@dhx/trial-suite@^9.0.0":
+  version "9.0.0"
+  resolved "https://npm.dhtmlx.com/@dhx%2ftrial-suite/-/trial-suite-9.0.0.tgz#5c2ffe6d960dbc2b8778073dcd4855b9ece846d0"
+  integrity sha512-xoaYfWYDEheVhKm1RoOOcdK8toV6PiE68IWE/eCnh6OFOBbLl9iPlOve8fI86KtMini9mi7pdYBziu4zf6GCog==
 
 "@esbuild/android-arm64@0.19.9":
   version "0.19.9"

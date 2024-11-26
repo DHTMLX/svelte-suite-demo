@@ -15,7 +15,7 @@
           padding: 40,
           id: "chart",
           collapsable: true,
-        }
+        },
       ],
     });
     chart = new Chart(null, {
@@ -66,12 +66,11 @@
     });
     accordion.getCell("chart").attach(chart);
     return () => {
-        accordion.destructor();
-        chart.destructor();
-        
-    }
+      accordion.destructor();
+      chart.destructor();
+    };
   });
-  $: chart?.data.parse($store.hotelsData)
+  $: chart?.data.parse($store.hotelsData);
 </script>
 
 <div bind:this={node} class="container"></div>

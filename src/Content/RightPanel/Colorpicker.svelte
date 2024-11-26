@@ -1,5 +1,5 @@
 <script>
-// @ts-nocheck
+  // @ts-nocheck
 
   import { Colorpicker } from "@dhx/trial-suite";
   import { onMount } from "svelte";
@@ -68,7 +68,7 @@
   });
 </script>
 
-<div bind:this={node} class="container dhx_layout_colorpicker_cell " />
+<div bind:this={node} class="container dhx_layout_colorpicker_cell" />
 
 <style>
   .container {

@@ -5,8 +5,6 @@
   import store from "../../store";
 
   onMount(() => {
-
-
     const gridConfig = {
       columns: [
         {
@@ -14,15 +12,17 @@
           id: "time",
           header: [{ text: "Time", align: "center" }],
           type: "date",
-          format: "%M %d, %H:%i",
+          dateFormat: "%M %d, %H:%i",
         },
         { id: "nights", header: [{ text: "Nights" }] },
         {
           id: "price",
           header: [{ text: "Price" }],
           type: "number",
-          format: "# #",
-          template: (i) => `$ ${i}`,
+          numberMask: {
+            groupSeparator: " ",
+            prefix: "$",
+          }
         },
         {
           gravity: 3,
@@ -43,8 +43,10 @@
           id: "totalCost",
           header: [{ text: "Total Cost" }],
           type: "number",
-          format: "# #",
-          template: (i) => `$${i}`,
+          numberMask: {
+            groupSeparator: " ",
+            prefix: "$",
+          }
         },
       ],
       autoWidth: true,
@@ -85,6 +87,5 @@
   }
   .grid_container {
     min-height: 848px;
-    
   }
 </style>

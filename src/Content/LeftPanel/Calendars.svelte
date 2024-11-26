@@ -30,7 +30,7 @@
 </script>
 
 <div class="container-wrapper">
-  <div class="container dhx_layout_calendar_cell" bind:this={weekNode}/>
+  <div class="container dhx_layout_calendar_cell" bind:this={weekNode} />
   <div class="container dhx_layout_calendar_cell" bind:this={timepickerNode} />
   <div class="container dhx_layout_calendar_cell" bind:this={yearNode} />
 </div>
