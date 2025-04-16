@@ -1,12 +1,16 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Sidebar } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  import store from "./store";
+  import { getData } from "../data";
 
-  let sidebar, node;
+  let sidebar, sidebar_container;
+  let { sidebarData } = getData();
 
   onMount(() => {
-    sidebar = new Sidebar(node, {});
+    sidebar = new Sidebar(sidebar_container, {
+      data: sidebarData
+    });
+
     sidebar.events.on("click", (id) => {
       if (id === "toggle") {
         const toggleItem = sidebar.data.getItem("toggle");
@@ -16,14 +20,14 @@
           : "mdi mdi-backburger";
       }
     });
-
-    return () => sidebar.destructor();
   });
 
-  $: sidebar?.data.parse($store.sidebarData);
+  onDestroy(() => {
+    sidebar?.destructor();
+  });
 </script>
 
-<div bind:this={node} class="dhx_widget--border_right"></div>
+<div bind:this={sidebar_container} class="dhx_widget--border_right"></div>
 
 <style>
   div {

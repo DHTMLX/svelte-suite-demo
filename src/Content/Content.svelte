@@ -16,6 +16,7 @@
     padding: 12px;
     gap: 12px;
   }
+  
   :global(.container) {
     border: var(--dhx-border);
   }

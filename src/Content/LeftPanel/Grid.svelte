@@ -1,18 +1,23 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Grid, Pagination } from "@dhx/trial-suite";
-  let gNode, pNode, grid, paginator;
-  import { onMount } from "svelte";
-  import store from "../../store";
+  import { getData } from "../../data";
+
+  let grid_container, pagination_container, 
+      grid, pagination;
+  let { gridData } = getData();
 
   onMount(() => {
     const gridConfig = {
+      data: gridData,
+      autoWidth: true,
       columns: [
         {
           gravity: 2,
           id: "time",
           header: [{ text: "Time", align: "center" }],
           type: "date",
-          dateFormat: "%M %d, %H:%i",
+          dateFormat: "%M %d, %H:%i"
         },
         { id: "nights", header: [{ text: "Nights" }] },
         {
@@ -21,13 +26,13 @@
           type: "number",
           numberMask: {
             groupSeparator: " ",
-            prefix: "$",
+            prefix: "$"
           }
         },
         {
           gravity: 3,
           id: "contactPerson",
-          header: [{ text: "Contact Person" }],
+          header: [{ text: "Contact Person" }]
         },
         {
           gravity: 4,
@@ -36,7 +41,7 @@
           htmlEnable: true,
           template: (text) => {
             return `<span class="contact_email";>${text}</span>`;
-          },
+          }
         },
         {
           gravity: 2,
@@ -45,37 +50,35 @@
           type: "number",
           numberMask: {
             groupSeparator: " ",
-            prefix: "$",
+            prefix: "$"
           }
-        },
+        }
       ],
-      autoWidth: true,
       css: "grid",
       multiselection: true,
       selection: "complex",
-      editable: true,
+      editable: true
     };
-    // @ts-ignore
-    grid = new Grid(gNode, gridConfig);
 
-    paginator = new Pagination(pNode, {
+    // @ts-ignore
+    grid = new Grid(grid_container, gridConfig);
+
+    pagination = new Pagination(pagination_container, {
       pageSize: 20,
       // @ts-ignore
-      data: grid.data,
+      data: grid.data
     });
-
-    return () => {
-      grid.destructor();
-      paginator.destructor();
-    };
   });
 
-  $: grid?.data.parse($store.gridDataset);
+  onDestroy(() => {
+    grid?.destructor();
+    pagination?.destructor();
+  });
 </script>
 
 <div class="container">
-  <div bind:this={gNode} class="grid_container" />
-  <div bind:this={pNode} />
+  <div bind:this={grid_container} class="grid_container" />
+  <div bind:this={pagination_container} />
 </div>
 
 <style>

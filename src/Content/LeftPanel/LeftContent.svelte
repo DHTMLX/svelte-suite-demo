@@ -1,5 +1,5 @@
 <script>
-  import Accardion from "./Accardion.svelte";
+  import Chart from "./Chart.svelte";
   import Calendars from "./Calendars.svelte";
   import Grid from "./Grid.svelte";
   import Ribbon from "./Ribbon.svelte";
@@ -11,7 +11,7 @@
 <div class="container-wrapper">
   <Grid />
   <Calendars />
-  <Accardion />
+  <Chart />
   <div class="block">
     <SlidersLayout />
     <Tree />

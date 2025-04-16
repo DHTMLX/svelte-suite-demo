@@ -1,23 +1,29 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Tree } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  import store from "../../store";
-  let node, tree;
+  import { getData } from "../../data";
+  
+  let tree_container, tree;
+  let { treeData } = getData();
 
   onMount(() => {
-    tree = new Tree(node, {
+    tree = new Tree(tree_container, {
+      data: treeData,
       checkbox: true,
       editable: true,
       keyNavigation: true,
-      dragMode: "both",
+      dragMode: "both"
     });
 
     return () => tree.destructor();
   });
-  $: tree?.data.parse($store.treeData);
+  
+  onDestroy(() => {
+    tree?.destructor();
+  });
 </script>
 
-<div bind:this={node} class="container" />
+<div bind:this={tree_container} class="container" />
 
 <style>
   .container {
