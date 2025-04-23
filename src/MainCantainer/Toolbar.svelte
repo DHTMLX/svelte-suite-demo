@@ -41,10 +41,4 @@
   $: setTheme(`${contrast ? "contrast-" : ""}${theme}`);
 </script>
 
-<div bind:this={toolbar_container} class="container"></div>
-
-<style>
-  .container {
-    border-bottom: var(--dhx-border);
-  }
-</style>
+<div bind:this={toolbar_container} class="toolbar_container"></div>

@@ -106,10 +106,4 @@
   });
 </script>
 
-<div bind:this={layout_container} class="container"></div>
-
-<style>
-  .container {
-    flex-grow: 1;
-  }
-</style>
+<div bind:this={layout_container} class="sliders_container"></div>

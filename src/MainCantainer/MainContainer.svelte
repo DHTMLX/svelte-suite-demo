@@ -4,17 +4,8 @@
   import Toolbar from "./Toolbar.svelte";
 </script>
 
-<div class="container">
+<div class="main_container">
   <Toolbar />
   <Tabbar />
   <Content />
 </div>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    overflow: hidden;
-  }
-</style>

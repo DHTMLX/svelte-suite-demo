@@ -8,31 +8,14 @@
   import Tree from "./Tree.svelte";
 </script>
 
-<div class="container-wrapper">
+<div class="left_content_container-wrapper">
   <Grid />
   <Calendars />
   <Chart />
-  <div class="block">
+  <div class="left_content_block">
     <SlidersLayout />
     <Tree />
   </div>
   <Ribbon />
   <TicketsDataview />
 </div>
-
-<style>
-  .container-wrapper {
-    display: flex;
-    height: 100%;
-    max-width: 800px;
-    flex-grow: 1;
-    gap: 12px;
-    flex-direction: column;
-  }
-  .block {
-    display: flex;
-    gap: 12px;
-    width: 100%;
-    justify-content: space-between;
-  }
-</style>

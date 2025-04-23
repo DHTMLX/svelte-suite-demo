@@ -70,11 +70,4 @@
   });
 </script>
 
-<div bind:this={colorpicker_container} class="container dhx_layout_colorpicker_cell" />
-
-<style>
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-</style>
+<div bind:this={colorpicker_container} class="cp_container dhx_layout_colorpicker_cell" />
