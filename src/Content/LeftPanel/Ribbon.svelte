@@ -18,11 +18,4 @@
   });
 </script>
 
-<div bind:this={ribbon_container} class="container" />
-
-<style>
-  .container {
-    padding: 50px;
-    background: var(--dhx-background-primary);
-  }
-</style>
+<div bind:this={ribbon_container} class="ribbon_container" />

@@ -27,11 +27,4 @@
   });
 </script>
 
-<div bind:this={sidebar_container} class="dhx_widget--border_right"></div>
-
-<style>
-  div {
-    width: fit-content;
-    height: 100%;
-  }
-</style>
+<div bind:this={sidebar_container} class="dhx_widget--border_right sidebar_container"></div>

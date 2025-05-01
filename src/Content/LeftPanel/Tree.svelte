@@ -23,10 +23,4 @@
   });
 </script>
 
-<div bind:this={tree_container} class="container" />
-
-<style>
-  .container {
-    flex-grow: 1;
-  }
-</style>
+<div bind:this={tree_container} class="tree_container" />

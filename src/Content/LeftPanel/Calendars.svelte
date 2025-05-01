@@ -32,17 +32,8 @@
   });
 </script>
 
-<div class="container-wrapper">
+<div class="calendar_container-wrapper">
   <div class="container dhx_layout_calendar_cell" bind:this={week_container} />
   <div class="container dhx_layout_calendar_cell" bind:this={timepicker_container} />
   <div class="container dhx_layout_calendar_cell" bind:this={year_container} />
 </div>
-
-<style>
-  .container-wrapper {
-    display: flex;
-    height: fit-content;
-    gap: 12px;
-    justify-content: space-between;
-  }
-</style>

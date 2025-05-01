@@ -76,19 +76,7 @@
   });
 </script>
 
-<div class="container">
+<div class="grid_container-wrapper">
   <div bind:this={grid_container} class="grid_container" />
   <div bind:this={pagination_container} />
 </div>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    border: var(--dhx-border);
-    max-width: 800px;
-  }
-  .grid_container {
-    min-height: 848px;
-  }
-</style>
