@@ -93,11 +93,17 @@ main {
 }
 
 .tree_container {
+  padding: 10px;
+  background: white;
+  width: 50%;
   flex-grow: 1;
   border: var(--dhx-border);
 }
 
 .sliders_container {
+  padding: 10px;
+  background: white;
+  width: 50%;
   flex-grow: 1;
   border: var(--dhx-border);
 }
