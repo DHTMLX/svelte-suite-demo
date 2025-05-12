@@ -1,11 +1,11 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Tabbar } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
 
-  let node, tabbar;
+  let tabbar_container, tabbar;
 
   onMount(() => {
-    tabbar = new Tabbar(node, {
+    tabbar = new Tabbar(tabbar_container, {
       tabAlign: "center",
       disabled: ["reports", "tickets", "users", "applications"],
       views: [
@@ -13,12 +13,14 @@
         { id: "reports", tab: "Reports" },
         { id: "tickets", tab: "Tickets" },
         { id: "users", tab: "Users" },
-        { id: "applications", tab: "Applications" },
-      ],
+        { id: "applications", tab: "Applications" }
+      ]
     });
+  });
 
-    return tabbar.destructor;
+  onDestroy(() => {
+    tabbar?.destructor();
   });
 </script>
 
-<div bind:this={node}></div>
+<div bind:this={tabbar_container}></div>

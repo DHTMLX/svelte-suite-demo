@@ -1,130 +1,13 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Form } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  let node, form;
+  import { getData } from "../../data";
+
+  let form_container, form;
+  const { country } = getData();
 
   onMount(() => {
-    const country = [
-      {
-        id: "austria",
-        value: "Austria",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/at.png",
-      },
-      {
-        value: "Belarus",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/by.png",
-      },
-      {
-        value: "Belgium",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/be.png",
-      },
-      {
-        value: "Bulgaria",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/bg.png",
-      },
-      {
-        value: "Cyprus",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/cy.png",
-      },
-      {
-        value: "Czech Republic",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/cz.png",
-      },
-      {
-        value: "Denmark",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/dk.png",
-      },
-      {
-        id: "estonia",
-        value: "Estonia",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/ee.png",
-      },
-      {
-        value: "Finland",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/fi.png",
-      },
-      {
-        value: "France",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/fr.png",
-      },
-      {
-        value: "Germany",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/de.png",
-      },
-      {
-        value: "Greece",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/gr.png",
-      },
-      {
-        value: "Hungary",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/hu.png",
-      },
-      {
-        value: "Ireland",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/ie.png",
-      },
-      {
-        value: "Italy",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/it.png",
-      },
-      {
-        value: "Latvia",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/lv.png",
-      },
-      {
-        value: "Lithuania",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/lt.png",
-      },
-      {
-        value: "Luxembourg",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/lu.png",
-      },
-      {
-        value: "Malta",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/mt.png",
-      },
-      {
-        value: "Netherlands",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/nl.png",
-      },
-      {
-        value: "Poland",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/pl.png",
-      },
-      {
-        value: "Portugal",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/pt.png",
-      },
-      {
-        value: "Russia",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/ru.png",
-      },
-      {
-        value: "Romania",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/ro.png",
-      },
-      {
-        value: "Slovakia",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/sk.png",
-      },
-      {
-        value: "Slovenia",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/si.png",
-      },
-      {
-        value: "Spain",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/es.png",
-      },
-      {
-        value: "Sweden",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/se.png",
-      },
-      {
-        value: "United Kingdom",
-        src: "https://snippet.dhtmlx.com/codebase/data/combobox/01/img/gb.png",
-      },
-    ];
-    form = new Form(node, {
+    form = new Form(form_container, {
       padding: 40,
       width: "auto",
       rows: [
@@ -136,10 +19,10 @@
               type: "input",
               label: "Name",
               placeholder: "Type text",
-              required: true,
+              required: true
             },
             {
-              type: "spacer",
+              type: "spacer"
             },
             {
               width: "48%",
@@ -147,9 +30,9 @@
               type: "input",
               label: "Surname",
               placeholder: "Type text",
-              required: true,
-            },
-          ],
+              required: true
+            }
+          ]
         },
         {
           name: "country",
@@ -158,27 +41,27 @@
           placeholder: "Click to select",
           multiselection: true,
           value: ["austria", "estonia"],
-          data: country,
+          data: country
         },
         {
           name: "birth",
           type: "datepicker",
           label: "Date of Birth",
           placeholder: "Type text",
-          value: new Date(),
+          value: new Date()
         },
         {
           name: "career",
           type: "input",
           label: "Career objective",
           placeholder: "Type text",
-          helpMessage: " Help information",
+          helpMessage: " Help information"
         },
         {
           name: "motivation",
           type: "textarea",
           label: "Motivation",
-          placeholder: "Type text here",
+          placeholder: "Type text here"
         },
         {
           name: "language",
@@ -190,26 +73,26 @@
               {
                 type: "radioButton",
                 text: "Elementary",
-                value: "1",
+                value: "1"
               },
               {
                 type: "radioButton",
                 text: "Intermediate",
-                value: "2",
+                value: "2"
               },
               {
                 type: "radioButton",
                 text: "Advanced",
-                value: "2",
-              },
-            ],
-          },
+                value: "2"
+              }
+            ]
+          }
         },
         {
           name: "backgroundColor",
           type: "colorpicker",
           label: "Background color",
-          placeholder: "Click to change",
+          placeholder: "Click to change"
         },
         {
           name: "offices",
@@ -217,12 +100,12 @@
           label: "Offices",
           placeholder: "You can select several offices",
           multiselection: true,
-          data: country,
+          data: country
         },
         {
           name: "attachDocument",
           type: "simpleVault",
-          label: "Attach document",
+          label: "Attach document"
         },
         {
           name: "howToContact",
@@ -234,31 +117,33 @@
                 id: "1",
                 type: "checkbox",
                 text: "Phone",
-                checked: true,
+                checked: true
               },
               {
                 id: "2",
                 type: "checkbox",
-                text: "Mail",
+                text: "Mail"
               },
               {
                 id: "3",
                 type: "checkbox",
-                text: "Messenger",
+                text: "Messenger"
               },
               {
                 id: "4",
                 type: "checkbox",
-                text: "Your option",
-              },
-            ],
-          },
-        },
-      ],
+                text: "Your option"
+              }
+            ]
+          }
+        }
+      ]
     });
+  });
 
-    return () => form.destructor();
+  onDestroy(() => {
+    form?.destructor();
   });
 </script>
 
-<div bind:this={node} class="container" />
+<div bind:this={form_container} class="container" />

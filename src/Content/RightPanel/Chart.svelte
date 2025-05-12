@@ -1,13 +1,15 @@
 <script>
   // @ts-nocheck
-
+  import { onMount, onDestroy } from "svelte";
   import { Chart } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  import store from "../../store";
-  let node, chart;
+  import { getData } from "../../data";
+
+  let chart_container, chart;
+  let { chartData } = getData();
 
   onMount(() => {
-    chart = new Chart(node, {
+    chart = new Chart(chart_container, {
+      data: chartData,
       type: "pie",
       series: [
         {
@@ -17,25 +19,26 @@
           opacity: "opacity",
           text: "month",
           stroke: "var(--dhx-background-primary)",
-          strokeWidth: 0,
-        },
+          strokeWidth: 0
+        }
       ],
       legend: {
         values: {
           id: "value",
           text: "id",
-          color: "color",
+          color: "color"
         },
         // monochrome: "#0288D1",
         align: "right",
         valign: "middle",
-        width: 30,
-      },
+        width: 30
+      }
     });
-
-    return () => chart.destructor();
   });
-  $: chart?.data.parse($store.chartData);
+
+  onDestroy(() => {
+    chart?.destructor();
+  });
 </script>
 
-<div bind:this={node} class="container" />
+<div bind:this={chart_container} class="container" />
