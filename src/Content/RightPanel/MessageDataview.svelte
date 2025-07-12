@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import { DataView } from "@dhx/trial-suite";
   import { getData } from "../../data";
-  
+
   let dataview_container, dataview;
   let { messageDataviewData } = getData();
 

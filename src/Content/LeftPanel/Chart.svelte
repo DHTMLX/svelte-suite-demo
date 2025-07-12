@@ -49,7 +49,6 @@
 
   onDestroy(() => {
     layout?.destructor();
-    chart?.destructor();
   });
 </script>
 

@@ -3,8 +3,7 @@
   import { Grid, Pagination } from "@dhx/trial-suite";
   import { getData } from "../../data";
 
-  let grid_container, pagination_container, 
-      grid, pagination;
+  let grid_container, pagination_container, grid, pagination;
   let { gridData } = getData();
 
   onMount(() => {

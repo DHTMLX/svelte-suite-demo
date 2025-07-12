@@ -2,7 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import { Tree } from "@dhx/trial-suite";
   import { getData } from "../../data";
-  
+
   let tree_container, tree;
   let { treeData } = getData();
 
@@ -17,7 +17,7 @@
 
     return () => tree.destructor();
   });
-  
+
   onDestroy(() => {
     tree?.destructor();
   });

@@ -2,8 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import { Calendar, Timepicker } from "@dhx/trial-suite";
 
-  let week_container, timepicker_container, year_container,
-      week, timepicker, year;
+  let week_container, timepicker_container, year_container, week, timepicker, year;
 
   onMount(() => {
     week = new Calendar(week_container, {

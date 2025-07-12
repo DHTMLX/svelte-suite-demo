@@ -15,9 +15,7 @@
       if (id === "toggle") {
         const toggleItem = sidebar.data.getItem("toggle");
         sidebar.toggle();
-        toggleItem.icon = sidebar.config.collapsed
-          ? "mdi mdi-menu"
-          : "mdi mdi-backburger";
+        toggleItem.icon = sidebar.config.collapsed ? "mdi mdi-menu" : "mdi mdi-backburger";
       }
     });
   });

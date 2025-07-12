@@ -19,9 +19,7 @@
           const checked = !toolbar.data.getItem("theme").checked;
           toolbar.data.update("theme", {
             checked,
-            icon: `mdi mdi-${
-                    !checked ? "weather-night" : "white-balance-sunny"
-                  }`
+            icon: `mdi mdi-${!checked ? "weather-night" : "white-balance-sunny"}`
           });
           theme = checked ? "dark" : "light";
           break;

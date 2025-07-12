@@ -46,13 +46,13 @@
     return {
       h,
       s,
-      l,
+      l
     };
   }
 
   onMount(() => {
     colorpicker = new Colorpicker(colorpicker_container, {
-      mode: "picker",
+      mode: "picker"
     });
     colorpicker.setValue("#0288d1");
     colorpicker.events.on("change", (hex) => {
