@@ -1,9 +1,9 @@
 <script>
   // @ts-nocheck
-
+  import { onMount, onDestroy } from "svelte";
   import { Colorpicker } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  let node, colorpicker;
+
+  let colorpicker_container, colorpicker;
 
   function hexToHSLChema(HEX) {
     let r = 0,
@@ -46,13 +46,13 @@
     return {
       h,
       s,
-      l,
+      l
     };
   }
 
   onMount(() => {
-    colorpicker = new Colorpicker(node, {
-      mode: "picker",
+    colorpicker = new Colorpicker(colorpicker_container, {
+      mode: "picker"
     });
     colorpicker.setValue("#0288d1");
     colorpicker.events.on("change", (hex) => {
@@ -63,16 +63,11 @@
       el.style.setProperty("--dhx-s-primary", s + "%");
       el.style.setProperty("--dhx-l-primary", l + "%");
     });
+  });
 
-    return () => colorpicker.destructor();
+  onDestroy(() => {
+    colorpicker?.destructor();
   });
 </script>
 
-<div bind:this={node} class="container dhx_layout_colorpicker_cell" />
-
-<style>
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-</style>
+<div bind:this={colorpicker_container} class="cp_container dhx_layout_colorpicker_cell" />

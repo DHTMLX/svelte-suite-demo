@@ -1,9 +1,7 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   display: flex;
-
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,10 +11,9 @@
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
 }
 
 #app {
@@ -25,6 +22,110 @@ body {
   width: 100%;
 }
 
+main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.sidebar_container {
+  width: fit-content;
+  height: 100%;
+}
+
+.toolbar_container {
+  border-bottom: var(--dhx-border);
+}
+
+.main_container-wrapper {
+  display: flex;
+  flex-grow: 1;
+  overflow: auto;
+  padding: 12px;
+  gap: 12px;
+}
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.container {
+  border: var(--dhx-border);
+}
+
+.left_content_container-wrapper {
+  display: flex;
+  height: 100%;
+  max-width: 800px;
+  flex-grow: 1;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.left_content_block {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.grid_container-wrapper {
+  display: flex;
+  flex-direction: column;
+  border: var(--dhx-border);
+  max-width: 800px;
+}
+
+.grid_container {
+  min-height: 848px;
+}
+
+.calendar_container-wrapper {
+  display: flex;
+  height: fit-content;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.tree_container {
+  padding: 10px;
+  background: white;
+  width: 50%;
+  flex-grow: 1;
+  border: var(--dhx-border);
+}
+
+.sliders_container {
+  padding: 10px;
+  background: white;
+  width: 50%;
+  flex-grow: 1;
+  border: var(--dhx-border);
+}
+
+.ribbon_container {
+  padding: 50px;
+  background: var(--dhx-background-primary);
+  border: var(--dhx-border);
+}
+
+.right_content_container-wrapper {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  gap: 12px;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cp_container {
+  display: flex;
+  justify-content: center;
+  border: var(--dhx-border);
+}
 
 /* Grid styling */
 .contact_email {
@@ -34,7 +135,6 @@ body {
 .grid .dhx_grid-content {
   border: none;
 }
-
 
 /* Tickets dataview styling */
 .dhx_dataview_template_a {
@@ -175,7 +275,6 @@ body {
   font-size: 20px;
   margin-left: 6px;
 }
-
 
 /* Message dataview styling */
 .dhx_dataview_template_b_box {

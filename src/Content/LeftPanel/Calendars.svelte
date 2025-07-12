@@ -1,45 +1,38 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Calendar, Timepicker } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
 
-  let weekNode, timepickerNode, yearNode;
+  let week_container, timepicker_container, year_container, week, timepicker, year;
 
   onMount(() => {
-    const week = new Calendar(weekNode, {
+    week = new Calendar(week_container, {
       weekStart: "monday",
       timePicker: true,
       range: true,
-      value: [new Date(), new Date(Date.now() + 200000000)],
-    });
-    const timePicker = new Timepicker(timepickerNode, {
-      controls: true,
-      value: new Date(),
-    });
-    const year = new Calendar(yearNode, {
-      timePicker: true,
-      mode: "year",
-      value: new Date(),
+      value: [new Date(), new Date(Date.now() + 200000000)]
     });
 
-    return () => {
-      week.destructor();
-      timePicker.destructor();
-      year.destructor();
-    };
+    timepicker = new Timepicker(timepicker_container, {
+      controls: true,
+      value: new Date()
+    });
+
+    year = new Calendar(year_container, {
+      timePicker: true,
+      mode: "year",
+      value: new Date()
+    });
+  });
+
+  onDestroy(() => {
+    week.destructor();
+    timepicker.destructor();
+    year.destructor();
   });
 </script>
 
-<div class="container-wrapper">
-  <div class="container dhx_layout_calendar_cell" bind:this={weekNode} />
-  <div class="container dhx_layout_calendar_cell" bind:this={timepickerNode} />
-  <div class="container dhx_layout_calendar_cell" bind:this={yearNode} />
+<div class="calendar_container-wrapper">
+  <div class="container dhx_layout_calendar_cell" bind:this={week_container} />
+  <div class="container dhx_layout_calendar_cell" bind:this={timepicker_container} />
+  <div class="container dhx_layout_calendar_cell" bind:this={year_container} />
 </div>
-
-<style>
-  .container-wrapper {
-    display: flex;
-    height: fit-content;
-    gap: 12px;
-    justify-content: space-between;
-  }
-</style>

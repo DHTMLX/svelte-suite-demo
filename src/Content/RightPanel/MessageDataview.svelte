@@ -1,8 +1,10 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { DataView } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  import store from "../../store";
-  let node, dataview;
+  import { getData } from "../../data";
+
+  let dataview_container, dataview;
+  let { messageDataviewData } = getData();
 
   function template({ mail, name, avatar, status, delivered }) {
     return `
@@ -21,16 +23,17 @@
   }
 
   onMount(() => {
-    dataview = new DataView(node, {
+    dataview = new DataView(dataview_container, {
+      data: messageDataviewData,
       template,
       itemsInRow: 2,
-      css: "dhx_dataview_template_b_box",
+      css: "dhx_dataview_template_b_box"
     });
-
-    return () => dataview.destructor();
   });
 
-  $: dataview?.data.parse($store.messageDataviewData);
+  onDestroy(() => {
+    dataview?.destructor();
+  });
 </script>
 
-<div bind:this={node} />
+<div bind:this={dataview_container} />

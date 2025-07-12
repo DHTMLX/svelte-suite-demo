@@ -1,10 +1,11 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Form } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  let node, form;
+
+  let buttons_form_container, form;
 
   onMount(() => {
-    form = new Form(node, {
+    form = new Form(buttons_form_container, {
       height: "content",
       padding: 40,
       align: "between",
@@ -20,7 +21,7 @@
               color: "primary",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -30,7 +31,7 @@
               color: "primary",
               full: true,
               view: "link",
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -40,9 +41,9 @@
               color: "primary",
               full: true,
               disabled: true,
-              size: "small",
-            },
-          ],
+              size: "small"
+            }
+          ]
         },
         {
           align: "between",
@@ -55,7 +56,7 @@
               color: "secondary",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -65,7 +66,7 @@
               color: "secondary",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -75,9 +76,9 @@
               color: "secondary",
               full: true,
               size: "small",
-              disabled: true,
-            },
-          ],
+              disabled: true
+            }
+          ]
         },
         {
           align: "between",
@@ -90,7 +91,7 @@
               color: "danger",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -100,7 +101,7 @@
               color: "danger",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -110,9 +111,9 @@
               color: "danger",
               full: true,
               size: "small",
-              disabled: true,
-            },
-          ],
+              disabled: true
+            }
+          ]
         },
         {
           align: "between",
@@ -125,7 +126,7 @@
               color: "success",
               icon: "dxi dxi-plus",
               full: true,
-              size: "small",
+              size: "small"
             },
             {
               padding: 5,
@@ -135,7 +136,7 @@
               color: "success",
               full: true,
               size: "small",
-              view: "link",
+              view: "link"
             },
             {
               padding: 5,
@@ -145,15 +146,17 @@
               color: "success",
               full: true,
               size: "small",
-              disabled: true,
-            },
-          ],
-        },
-      ],
+              disabled: true
+            }
+          ]
+        }
+      ]
     });
+  });
 
-    return () => form.destructor();
+  onDestroy(() => {
+    form?.destructor();
   });
 </script>
 
-<div bind:this={node} class="container" />
+<div bind:this={buttons_form_container} class="container" />

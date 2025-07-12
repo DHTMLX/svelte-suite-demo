@@ -1,24 +1,21 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Ribbon } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  import store from "../../store";
-  let node, ribbon;
+  import { getData } from "../../data";
+
+  let ribbon_container, ribbon;
+  const { ribbonData } = getData();
 
   onMount(() => {
-    ribbon = new Ribbon(node, {
-      css: "dhx_widget--bordered",
+    ribbon = new Ribbon(ribbon_container, {
+      data: ribbonData,
+      css: "dhx_widget--bordered"
     });
-
-    return () => ribbon.destructor();
   });
-  $: ribbon?.data.parse($store.ribbonData);
+
+  onDestroy(() => {
+    ribbon?.destructor();
+  });
 </script>
 
-<div bind:this={node} class="container" />
-
-<style>
-  .container {
-    padding: 50px;
-    background: var(--dhx-background-primary);
-  }
-</style>
+<div bind:this={ribbon_container} class="ribbon_container" />

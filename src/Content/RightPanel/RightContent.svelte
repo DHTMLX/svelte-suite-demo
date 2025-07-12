@@ -6,21 +6,10 @@
   import MessageDataview from "./MessageDataview.svelte";
 </script>
 
-<div class="container-wrapper">
+<div class="right_content_container-wrapper">
   <Chart />
   <Form />
   <ButtonsForm />
   <Colorpicker />
   <MessageDataview />
 </div>
-
-<style>
-  .container-wrapper {
-    display: flex;
-    height: 100%;
-    width: fit-content;
-    gap: 12px;
-    flex: 1;
-    flex-direction: column;
-  }
-</style>

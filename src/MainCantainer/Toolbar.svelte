@@ -1,21 +1,25 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { Toolbar, setTheme } from "@dhx/trial-suite";
-  import { onMount } from "svelte";
-  import store from "./store";
-  let node, toolbar;
+  import { getData } from "../data";
+
+  let toolbar, toolbar_container;
   let contrast = false;
   let theme = "light";
+  let { toolbarData } = getData();
+
   onMount(() => {
-    toolbar = new Toolbar(node, {});
+    toolbar = new Toolbar(toolbar_container, {
+      data: toolbarData
+    });
+
     toolbar.events.on("click", (id) => {
       switch (id) {
         case "theme": {
           const checked = !toolbar.data.getItem("theme").checked;
           toolbar.data.update("theme", {
             checked,
-            icon: `mdi mdi-${
-              !checked ? "weather-night" : "white-balance-sunny"
-            }`,
+            icon: `mdi mdi-${!checked ? "weather-night" : "white-balance-sunny"}`
           });
           theme = checked ? "dark" : "light";
           break;
@@ -25,19 +29,14 @@
         }
       }
     });
-    return () => toolbar.destructor();
   });
 
-  $: toolbar?.data.parse($store.toolbarData);
+  onDestroy(() => {
+    toolbar?.destructor();
+  });
 
   // @ts-ignore
   $: setTheme(`${contrast ? "contrast-" : ""}${theme}`);
 </script>
 
-<div bind:this={node} class="container"></div>
-
-<style>
-  .container {
-    border-bottom: var(--dhx-border);
-  }
-</style>
+<div bind:this={toolbar_container} class="toolbar_container"></div>

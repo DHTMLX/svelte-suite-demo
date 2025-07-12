@@ -1,9 +1,11 @@
 <script>
+  import { onMount, onDestroy } from "svelte";
   import { DataView } from "@dhx/trial-suite";
   import "@dhx/trial-suite/codebase/suite.min.css";
-  import { onMount } from "svelte";
-  import store from "../../store";
-  let node, dataview;
+  import { getData } from "../../data";
+
+  let dataview_container, dataview;
+  let { ticketsDataviewData } = getData();
 
   function template({ title, text, type, avatar, name, comments, time }) {
     return `
@@ -27,22 +29,21 @@
                     <span class="mdi mdi-comment-outline"></span></div>
                 </div>
             </div>
-        `;
+          `;
   }
 
   onMount(() => {
-    dataview = new DataView(node, {
+    dataview = new DataView(dataview_container, {
+      data: ticketsDataviewData,
       template,
       itemsInRow: 2,
-      css: "dhx_dataview_template_a_box",
+      css: "dhx_dataview_template_a_box"
     });
-
-    return () => dataview.destructor();
   });
-  $: dataview?.data.parse($store.ticketsDataviewData);
+
+  onDestroy(() => {
+    dataview?.destructor();
+  });
 </script>
 
-<div bind:this={node} />
-
-<style>
-</style>
+<div bind:this={dataview_container} />
