@@ -3,7 +3,7 @@
   "postAttachCommand": "yarn start",
   "customizations": {
     "codespaces": {
-      "openFiles": ["src/MainContainer.svelte"]
+      "openFiles": ["src/App.svelte"]
     }
   }
 }
